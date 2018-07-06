@@ -6,8 +6,8 @@ using UnityEngine.Video;
 public class InstructionsController : MonoBehaviour {
 
 	public GameObject media;
-	public GameObject welcomePanel, instructionsPanel;
-	public GameObject backButton, goCloseButton;
+	public GameObject creditPanel, instructionsPanel, welcomePanel;
+	public GameObject backButton, creditButton, goCloseButton;
 	public GameObject snow, river;
 
 	public void Next() {
@@ -24,6 +24,7 @@ public class InstructionsController : MonoBehaviour {
 		river.GetComponent<GvrAudioSource> ().Play();
 		// Disable panel
 		instructionsPanel.SetActive(false);
+		creditButton.SetActive(false);
 		snow.SetActive(false);
 		// Enable the back button
 		backButton.SetActive(true);
@@ -37,6 +38,7 @@ public class InstructionsController : MonoBehaviour {
 		river.GetComponent<GvrAudioSource> ().Pause();
 		// Enable the welcome panel
 		welcomePanel.SetActive(true);
+		creditButton.SetActive(true);
 		snow.SetActive(true);
 		// Disable instructions panel and back button
 		instructionsPanel.SetActive(false);
@@ -52,6 +54,16 @@ public class InstructionsController : MonoBehaviour {
 		videoPlayer.Play();
 		// Disable go close button
 		goCloseButton.SetActive(false);
+	}
+
+	public void DisplayCredits() {
+		creditPanel.SetActive(true);
+		creditButton.SetActive(false);
+	}
+	
+	public void StopCredits() {
+		creditPanel.SetActive(false);
+		creditButton.SetActive(true);
 	}
 
 	public void Exit() {
