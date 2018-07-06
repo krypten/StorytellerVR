@@ -8,7 +8,7 @@ public class InstructionsController : MonoBehaviour {
 	public GameObject media;
 	public GameObject welcomePanel, instructionsPanel;
 	public GameObject backButton, goCloseButton;
-	public GameObject snow;
+	public GameObject snow, river;
 
 	public void Next() {
 		// Disable the welcome panel
@@ -21,6 +21,7 @@ public class InstructionsController : MonoBehaviour {
 		// Play the video
 		VideoControl videoController = (VideoControl) media.GetComponent(typeof(VideoControl));
 		videoController.Play();
+		river.GetComponent<GvrAudioSource> ().Play();
 		// Disable panel
 		instructionsPanel.SetActive(false);
 		snow.SetActive(false);
@@ -33,6 +34,7 @@ public class InstructionsController : MonoBehaviour {
 		// Pause the video
 		VideoControl videoController = (VideoControl) media.GetComponent(typeof(VideoControl));
 		videoController.PlayPause();
+		river.GetComponent<GvrAudioSource> ().Pause();
 		// Enable the welcome panel
 		welcomePanel.SetActive(true);
 		snow.SetActive(true);
