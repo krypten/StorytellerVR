@@ -36,7 +36,7 @@ public class VideoControl : MonoBehaviour {
 		}
 	}
 
-	void Play() {
+	public void Play() {
 		Application.runInBackground = true;
 		StartCoroutine(PlayVideo());
 	}
