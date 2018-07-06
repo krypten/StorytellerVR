@@ -8,6 +8,7 @@ public class InstructionsController : MonoBehaviour {
 	public GameObject media;
 	public GameObject welcomePanel, instructionsPanel;
 	public GameObject backButton, goCloseButton;
+	public GameObject snow;
 
 	public void Next() {
 		// Disable the welcome panel
@@ -22,6 +23,7 @@ public class InstructionsController : MonoBehaviour {
 		videoController.Play();
 		// Disable panel
 		instructionsPanel.SetActive(false);
+		snow.SetActive(false);
 		// Enable the back button
 		backButton.SetActive(true);
 		goCloseButton.SetActive(true);
@@ -33,6 +35,7 @@ public class InstructionsController : MonoBehaviour {
 		videoController.PlayPause();
 		// Enable the welcome panel
 		welcomePanel.SetActive(true);
+		snow.SetActive(true);
 		// Disable instructions panel and back button
 		instructionsPanel.SetActive(false);
 		backButton.SetActive(false);
@@ -45,9 +48,6 @@ public class InstructionsController : MonoBehaviour {
 		videoPlayer.url = "https://bitbucket.org/chaitanya_agrawal/story_teller_videos/raw/a871168c23f33f08a75bc320986a6679ab4f0365/Exports/Taj_Mahal_Close.mp4";
 		videoPlayer.Prepare();
 		videoPlayer.Play();
-		// Play the video
-		// VideoControl videoController = (VideoControl) media.GetComponent(typeof(VideoControl));
-		// videoController.Play();
 		// Disable go close button
 		goCloseButton.SetActive(false);
 	}
