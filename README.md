@@ -8,7 +8,7 @@ This project is part of the Udacity VR Nanodegree program. This is focused about
 You can find the design process related to this game [here](about:blank).
 
 ### Running the story
-You need to download the app by simply copying the apk file from the Build/ directory onto your android device, and installing the apk by clicking on it from the file manager.
+You need to download the app by simply copying the apk file from [link] (https://bitbucket.org/chaitanya_agrawal/story_teller_videos/raw/96bdefdeed5c143667cbb0dce555f2d4e901473a/Build/360Story.apk) or the [Build/](https://bitbucket.org/chaitanya_agrawal/story_teller_videos/src/master/Build/) directory onto your android device, and installing the apk by clicking on it from the file manager.
 
 ### Software Used
  - Autopano video
