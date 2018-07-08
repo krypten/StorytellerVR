@@ -6,7 +6,7 @@ using UnityEngine.Video;
 public class InstructionsController : MonoBehaviour {
 
 	public GameObject media;
-	public GameObject creditPanel, instructionsPanel, welcomePanel;
+	public GameObject creditPanel, instructionsPanel, videoPanel, welcomePanel;
 	public GameObject backButton, creditButton, goCloseButton;
 	public GameObject snow, river;
 
@@ -23,27 +23,20 @@ public class InstructionsController : MonoBehaviour {
 		videoController.Play();
 		river.GetComponent<GvrAudioSource> ().Play();
 		// Disable panel
-		instructionsPanel.SetActive(false);
-		creditButton.SetActive(false);
-		snow.SetActive(false);
+		hideWelcomeScreen();
 		// Enable the back button
-		backButton.SetActive(true);
-		goCloseButton.SetActive(true);
+		showVideoControls();
 	}
 
 	public void Back() {
 		// Pause the video
 		VideoControl videoController = (VideoControl) media.GetComponent(typeof(VideoControl));
-		videoController.PlayPause();
+		videoController.Pause();
 		river.GetComponent<GvrAudioSource> ().Pause();
 		// Enable the welcome panel
-		welcomePanel.SetActive(true);
-		creditButton.SetActive(true);
-		snow.SetActive(true);
+		showWelcomeScreen();
 		// Disable instructions panel and back button
-		instructionsPanel.SetActive(false);
-		backButton.SetActive(false);
-		goCloseButton.SetActive(false);
+		hideVideoControls();
 	}
 
 	public void StartTajMahalCloseVideo() {
@@ -53,6 +46,31 @@ public class InstructionsController : MonoBehaviour {
 		videoPlayer.Prepare();
 		videoPlayer.Play();
 		// Disable go close button
+		goCloseButton.SetActive(false);
+	}
+
+	public void showWelcomeScreen() {
+		welcomePanel.SetActive(true);
+		creditButton.SetActive(true);
+		snow.SetActive(true);
+	}
+
+	public void hideWelcomeScreen() {
+		instructionsPanel.SetActive(false);
+		creditButton.SetActive(false);
+		snow.SetActive(false);
+	}
+
+	public void showVideoControls() {
+		videoPanel.SetActive(true);
+		backButton.SetActive(true);
+		goCloseButton.SetActive(true);
+	}
+
+	public void hideVideoControls() {
+		instructionsPanel.SetActive(false);
+		videoPanel.SetActive(false);
+		backButton.SetActive(false);
 		goCloseButton.SetActive(false);
 	}
 
